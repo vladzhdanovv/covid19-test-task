@@ -13,7 +13,7 @@ const Layout = ({routes, ...props}) => {
                 <Col xs={2}>
                     <Sidebar />
                 </Col>
-                <Col xs={9}>
+                <Col xs={10}>
                     <Content>
                         {routes}
                     </Content>
