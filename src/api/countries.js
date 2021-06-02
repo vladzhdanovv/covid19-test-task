@@ -1,15 +1,18 @@
 import http from '../utils/http';
+import _ from 'lodash';
 
 export const getCountries = () => {
     return http.get('/countries')
         .then(response => response.data);
 }
 
+// This API endpoint returns all data for each day, so it can multiply the data per day
 export const getCountryBySlug = (slug) => {
     return http.get(`/live/country/${slug}/status/confirmed?from=2020-03-01T00:00:00Z&to=${new Date().toISOString()}`)
         .then(response => response.data || [])
         .then(items => {
-            return items
+
+            return _.uniqBy(items, 'Date')
                 .map((item, i, arr) => {
                     const prev = arr[i - 1];
                     const prevConfirmed = prev ? prev.Confirmed : 0;

@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import {Form, FormControl, InputGroup, Nav} from "react-bootstrap";
 import {getCountries} from '../../api/countries';
@@ -8,12 +8,11 @@ const Sidebar = () => {
     const [countries, setCountries] = useState([]);
     const [query, setQuery] = useState('');
 
-    useEffect(async () => {
-        const countries = await getCountries()
-        setAll(countries);
+    useEffect( () => {
+        getCountries().then(setAll)
     }, []);
 
-    useEffect(async () => {
+    useEffect( () => {
         const filtered = all.filter(item => item.Country.startsWith(query));
         setCountries(filtered);
     }, [all, query])
