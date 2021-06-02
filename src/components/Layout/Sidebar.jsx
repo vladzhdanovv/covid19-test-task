@@ -16,7 +16,7 @@ const Sidebar = () => {
                 {
                     countries.map(country => {
                         return (
-                            <Nav.Item>
+                            <Nav.Item key={country.Slug}>
                                 <Link to={`${country.Slug}`}>
                                     { country.Country}
                                 </Link>

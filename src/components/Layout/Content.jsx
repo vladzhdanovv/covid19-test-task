@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Content = (props) => {
+const Content = ({children, ...props}) => {
     return (
         <main>
-            { props.children }
+            { children }
         </main>
     )
 }

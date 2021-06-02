@@ -5,7 +5,7 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Content from "./Content";
 
-const Layout = ({routes, ...props}) => {
+const Layout = ({routes: Routes, ...props}) => {
     return (
         <Container fluid style={{padding: 0}}>
             <Header />
@@ -15,7 +15,7 @@ const Layout = ({routes, ...props}) => {
                 </Col>
                 <Col xs={10}>
                     <Content>
-                        {routes}
+                        <Routes />
                     </Content>
                 </Col>
             </Row>

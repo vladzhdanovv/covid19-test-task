@@ -9,10 +9,7 @@ import CountryDetails from './pages/CountryDetails';
 
 const Routes = () => (
     <Switch>
-        <Route path="/home" exact>
-            <Home />
-        </Route>
-        <Route path="/:country" exact>
+        <Route path="/:slug" exact>
             <CountryDetails />
         </Route>
         <Route path="/" exact>
